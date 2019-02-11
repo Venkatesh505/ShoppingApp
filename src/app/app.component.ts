@@ -1,20 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation:ViewEncapsulation.Emulated
 })
 export class AppComponent {
-serverElements=[];
+serverElements=[{type:"server",name:"first server",content:"This is First Server"}];
 
   constructor() {    
    }
-   OnserverCreated(serverDate:{ServerName: string,serverContent:string}){
+   OnserverCreated(serverData:{serverContent:string,serverName:string}){
+     console.log(serverData);
+     console.log(serverData.serverName);
+     console.log(serverData.serverContent);
      this.serverElements.push({
               type:'server',
-              name1:    serverDate.ServerName,
-              content: serverDate.serverContent
+              name:   serverData.serverName,
+              content: serverData.serverContent
      });
    }
 }

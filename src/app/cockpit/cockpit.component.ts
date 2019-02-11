@@ -1,4 +1,4 @@
-import { Component, OnInit,EventEmitter,Output } from '@angular/core';
+import { Component, OnInit,EventEmitter,Output, ViewChild, ElementRef } from '@angular/core';
 
 
 @Component({
@@ -9,13 +9,17 @@ import { Component, OnInit,EventEmitter,Output } from '@angular/core';
 export class CockpitComponent implements OnInit {
   newServerName = '';
   newServerContent = '';
+  @ViewChild("newserverName") nameelement: ElementRef;
   @Output() serverCreated= new EventEmitter<{serverName: string,serverContent: string}>();
   constructor() { }
 
   ngOnInit() {
   }
-  onAddServer() {
-   this.serverCreated.emit({serverName:this.newServerName,serverContent:this.newServerContent});
+  onAddServer(nameInput:HTMLInputElement) {
+console.log(nameInput.value); //LocalReferences
+console.log(this.nameelement.nativeElement.value); //@DOM Element references
+    this.serverCreated.emit({serverName:nameInput.value,serverContent:this.newServerContent});
+
   }
 
   onAddBlueprint() {
