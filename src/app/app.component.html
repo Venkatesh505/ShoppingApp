@@ -1,5 +1,5 @@
-<app-Header></app-Header>
-<div class="container">
+<app-Header (Clickemit)="Receiveclick($event)"></app-Header>
+<div class="container" *ngIf="localClickVal=='Recipes'">
     <div class="row"></div>
     <div class="col-md-12">
 <app-recipes></app-recipes>
@@ -8,23 +8,23 @@
 
     </div>
 </div>
-<div class="row">
+<div class="row" *ngIf="localClickVal==='shoppinglist'">
     <div class="col-xs-12">
         <app-shopping-list></app-shopping-list>
     </div>
 </div>
 
 
-<h1>This is not related to above stuff</h1>
+<!-- <h1>This is not related to above stuff</h1> -->
 
-  <div class="container">
+  <div class="container"*ngIf="localClickVal!='Recipes' && localClickVal!='shoppinglist'">
       <app-cockpit (serverCreated)="OnserverCreated($event)"></app-cockpit>
       <div class="row">
           <div class="col-xs-12">
           <app-server-element *ngFor="let serverElement of serverElements" 
           [element]="serverElement">
         
-          <p>
+          <p #serverelement>
             <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
             <em *ngIf="serverElement.type === 'blueprint'" style="color: blue">{{ serverElement.content }}</em>
           </p>

@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,AfterContentInit, ContentChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -7,9 +7,14 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class ServerElementComponent implements OnInit {
 @Input() element: {type: string, name: string, content: string}
+@ContentChild('serverelement') paragraph: ElementRef;
   constructor() { }
 
   ngOnInit() {
+    console.log("In INIT:" + this.paragraph.nativeElement.textContent)
+  }
+  ngAfterContentInit(){
+    console.log("In AfterContentInit:" + this.paragraph.nativeElement.textContent)
   }
 
 }

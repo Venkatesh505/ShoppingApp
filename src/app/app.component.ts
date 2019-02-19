@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation,Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
 serverElements=[{type:"server",name:"first server",content:"This is First Server"}];
-
+@Input() linkclicked: string;
+localClickVal: string="Random";
   constructor() {    
    }
    OnserverCreated(serverData:{serverContent:string,serverName:string}){
@@ -20,5 +21,10 @@ serverElements=[{type:"server",name:"first server",content:"This is First Server
               name:   serverData.serverName,
               content: serverData.serverContent
      });
+   }
+   Receiveclick(inputval: string)
+   {
+this.localClickVal=inputval;
+console.log("Inside App Component: " + inputval );
    }
 }
