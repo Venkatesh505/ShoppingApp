@@ -12,7 +12,8 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
-
+import {bluebackground} from './Custom-Directives/blue-background-directive';
+import { BetterBlueHighLightDirective } from './Custom-Directives/better-blue-high-light.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,9 @@ import { CockpitComponent } from './cockpit/cockpit.component';
     ShoppingListComponent,
     ShoppingEditComponent,
     ServerElementComponent,
-    CockpitComponent
+    CockpitComponent,
+    bluebackground,
+    BetterBlueHighLightDirective
   ],
   imports: [
     BrowserModule,
