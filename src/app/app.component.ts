@@ -7,6 +7,7 @@ import { Component, ViewEncapsulation,Input } from '@angular/core';
   encapsulation:ViewEncapsulation.Emulated
 })
 export class AppComponent {
+  element1='';
 serverElements=[{type:"server",name:"first server",content:"This is First Server"}];
 @Input() linkclicked: string;
 localClickVal: string="Random";
