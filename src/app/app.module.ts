@@ -14,6 +14,7 @@ import { ServerElementComponent } from './server-element/server-element.componen
 import { CockpitComponent } from './cockpit/cockpit.component';
 import {bluebackground} from './Custom-Directives/blue-background-directive';
 import { BetterBlueHighLightDirective } from './Custom-Directives/better-blue-high-light.directive';
+import { dropdownDirective } from './Custom-Directives/Dropdown-directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { BetterBlueHighLightDirective } from './Custom-Directives/better-blue-hi
     ServerElementComponent,
     CockpitComponent,
     bluebackground,
-    BetterBlueHighLightDirective
+    BetterBlueHighLightDirective,
+    dropdownDirective
   ],
   imports: [
     BrowserModule,
