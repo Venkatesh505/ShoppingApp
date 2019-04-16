@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation,Input } from '@angular/core';
-
+import{loggingService} from '../app/Services/logging.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,9 +14,11 @@ localClickVal: string="Random";
   constructor() {    
    }
    OnserverCreated(serverData:{serverContent:string,serverName:string}){
-     console.log(serverData);
-     console.log(serverData.serverName);
-     console.log(serverData.serverContent);
+    const ls= new loggingService();
+ls.logmsg(serverData.serverName);
+    // console.log(serverData);
+    //  console.log(serverData.serverName);
+    //  console.log(serverData.serverContent);
      this.serverElements.push({
               type:'server',
               name:   serverData.serverName,
