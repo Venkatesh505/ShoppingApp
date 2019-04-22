@@ -15,6 +15,7 @@ import { CockpitComponent } from './cockpit/cockpit.component';
 import {bluebackground} from './Custom-Directives/blue-background-directive';
 import { BetterBlueHighLightDirective } from './Custom-Directives/better-blue-high-light.directive';
 import { dropdownDirective } from './Custom-Directives/Dropdown-directive';
+import { ShoppingCartService } from './shopping-list/shoppingcart.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import { dropdownDirective } from './Custom-Directives/Dropdown-directive';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
